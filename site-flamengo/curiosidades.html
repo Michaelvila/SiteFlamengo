@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curiosidades | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html" class="ativo" aria-current="page">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • CURIOSIDADES</span>
+      <h1>Curiosidades</h1>
+      <p>Descubra detalhes interessantes sobre o clube.</p>
+    </section>
+    <section class="card"><h2>Você sabia?</h2><p id="mensagem" aria-live="polite">O Flamengo começou como um clube de remo, em 1895.</p><button onclick="sortear()">Mostrar outra curiosidade</button></section><div class="grid"><article class="card"><h2>O escudo</h2><p>O monograma CRF representa Clube de Regatas do Flamengo.</p></article><article class="card"><h2>Clássicos</h2><p>Fla-Flu, Clássico dos Milhões e clássico contra o Botafogo fazem parte da tradição carioca.</p></article></div>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    const fatos = ['O Flamengo começou como um clube de remo, em 1895.', 'O futebol rubro-negro começou a disputar partidas em 1912.', 'O Mundial de 1981 foi conquistado contra o Liverpool.', 'Zico ficou conhecido como o Galinho de Quintino.', 'O Fla-Flu é o clássico contra o Fluminense.'];
+    let atual = 0;
+    function sortear() {
+      atual = (atual + 1 + Math.floor(Math.random() * (fatos.length - 1))) % fatos.length;
+      document.getElementById('mensagem').textContent = fatos[atual];
+    }
+  </script>
+</body>
+</html>

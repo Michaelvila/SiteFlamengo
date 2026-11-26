@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    fieldset{border:1px solid #ddd;border-radius:6px;margin:0 0 15px;padding:12px;} legend{font-weight:bold;} fieldset label{font-weight:normal;}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html" class="ativo" aria-current="page">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • QUIZ</span>
+      <h1>Quiz</h1>
+      <p>Cinco perguntas para descobrir se você conhece o Mengão.</p>
+    </section>
+    <form class="card" id="quiz" onsubmit="corrigir(event)"><fieldset><legend>1. Em que ano o Flamengo foi fundado?</legend><label><input type="radio" name="q0" value="0" required>1895</label><label><input type="radio" name="q0" value="1" required>1912</label><label><input type="radio" name="q0" value="2" required>1981</label></fieldset><fieldset><legend>2. Qual é o apelido de Zico?</legend><label><input type="radio" name="q1" value="0" required>Imperador</label><label><input type="radio" name="q1" value="1" required>Galinho</label><label><input type="radio" name="q1" value="2" required>Fenômeno</label></fieldset><fieldset><legend>3. Qual clube o Flamengo venceu no Mundial de 1981?</legend><label><input type="radio" name="q2" value="0" required>Milan</label><label><input type="radio" name="q2" value="1" required>Barcelona</label><label><input type="radio" name="q2" value="2" required>Liverpool</label></fieldset><fieldset><legend>4. Quais são as cores do Flamengo?</legend><label><input type="radio" name="q3" value="0" required>Azul e branco</label><label><input type="radio" name="q3" value="1" required>Vermelho e preto</label><label><input type="radio" name="q3" value="2" required>Verde e branco</label></fieldset><fieldset><legend>5. Qual é o nome popular do estádio onde o Flamengo manda muitos jogos?</legend><label><input type="radio" name="q4" value="0" required>Maracanã</label><label><input type="radio" name="q4" value="1" required>Morumbi</label><label><input type="radio" name="q4" value="2" required>Mineirão</label></fieldset><button type="submit">Ver pontuação</button><button type="button" onclick="reiniciar()">Recomeçar</button><p id="mensagem" aria-live="polite">Responda todas as perguntas.</p></form>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    function corrigir(evento) {
+      evento.preventDefault();
+      const gabarito = [0, 1, 2, 1, 0];
+      let pontos = 0;
+      for (let i = 0; i < gabarito.length; i++) {
+        const resposta = document.querySelector('input[name="q' + i + '"]:checked');
+        if (resposta && Number(resposta.value) === gabarito[i]) pontos++;
+      }
+      document.getElementById('mensagem').textContent = 'Você acertou ' + pontos + ' de 5! ' + (pontos === 5 ? 'Parabéns!' : 'Continue estudando a história do Mengão!');
+    }
+    function reiniciar() {
+      document.getElementById('quiz').reset();
+      document.getElementById('mensagem').textContent = 'Responda todas as perguntas.';
+    }
+  </script>
+</body>
+</html>

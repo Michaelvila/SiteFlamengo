@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ídolos | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html" class="ativo" aria-current="page">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • ÍDOLOS</span>
+      <h1>Ídolos</h1>
+      <p>Craques que deixaram sua marca no coração da Nação.</p>
+    </section>
+    <div class="grid"><article class="card"><h2>Zico</h2><p>O Galinho de Quintino, símbolo da geração campeã mundial de 1981.</p><button onclick="votar('Zico')">Votar</button></article><article class="card"><h2>Júnior</h2><p>Versátil e técnico, tornou-se referência de diferentes gerações.</p><button onclick="votar('Júnior')">Votar</button></article><article class="card"><h2>Leandro</h2><p>Lateral-direito conhecido pela qualidade com a bola.</p><button onclick="votar('Leandro')">Votar</button></article><article class="card"><h2>Adriano</h2><p>O Imperador marcou a conquista brasileira de 2009.</p><button onclick="votar('Adriano')">Votar</button></article><article class="card"><h2>Gabigol</h2><p>Decisivo na final da Libertadores de 2019.</p><button onclick="votar('Gabigol')">Votar</button></article></div><section class="card"><h2>Seu ídolo favorito</h2><p id="mensagem" aria-live="polite">Ainda não votou.</p><button onclick="apagar()">Apagar meu voto</button><p class="nota">Preferência salva apenas neste navegador.</p></section>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br><small>HTML, CSS e JavaScript | Dados de referência: novembro de 2026</small></footer>
+  <script>
+    const mensagem = document.getElementById('mensagem');
+    function votar(nome) {
+      mensagem.textContent = 'Seu ídolo favorito: ' + nome;
+      try { localStorage.setItem('idoloFlamengo', nome); } catch (erro) { }
+    }
+    function apagar() {
+      try { localStorage.removeItem('idoloFlamengo'); } catch (erro) { }
+      mensagem.textContent = 'Ainda não votou.';
+    }
+    try {
+      const salvo = localStorage.getItem('idoloFlamengo');
+      if (salvo) mensagem.textContent = 'Seu ídolo favorito: ' + salvo;
+    } catch (erro) { }
+  </script>
+</body>
+</html>

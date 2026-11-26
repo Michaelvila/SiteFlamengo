@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Títulos | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html" class="ativo" aria-current="page">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • TÍTULOS</span>
+      <h1>Títulos</h1>
+      <p>Uma seleção das conquistas que marcaram a história do clube.</p>
+    </section>
+    <section class="card"><label for="filtro">Filtrar por competição</label><select id="filtro" onchange="filtrar()"><option value="todos">Todos</option><option value="internacional">Internacionais</option><option value="nacional">Nacionais</option><option value="estadual">Estaduais</option></select></section><div class="grid" id="titulos"><article class="card conquista" data-tipo="internacional"><p class="destaque">1981</p><h2>Mundial Interclubes</h2><p>Vitória sobre o Liverpool.</p></article><article class="card conquista" data-tipo="internacional"><p class="destaque">4</p><h2>Libertadores</h2><p>1981, 2019, 2022 e 2025.</p></article><article class="card conquista" data-tipo="nacional"><p class="destaque">10*</p><h2>Brasileirão</h2><p>Contagem adotada pelo clube em 2026.</p></article><article class="card conquista" data-tipo="nacional"><p class="destaque">2024</p><h2>Copa do Brasil</h2><p>Uma das conquistas nacionais do Mengão.</p></article><article class="card conquista" data-tipo="estadual"><p class="destaque">Carioca</p><h2>Campeonato Carioca</h2><p>Tradição nos clássicos estaduais.</p></article></div><p class="nota">* A contagem do clube inclui a Copa União de 1987, cuja disputa jurídica teve reconhecimento oficial do Sport como campeão brasileiro. <a href="https://www.museuflamengo.com.br/titulos/futebol" target="_blank" rel="noopener noreferrer">Museu Flamengo ↗</a></p>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></small></footer>
+  <script>
+    function filtrar() {
+      const filtro = document.getElementById('filtro').value;
+      document.querySelectorAll('.conquista').forEach(card => {
+        card.hidden = filtro !== 'todos' && card.dataset.tipo !== filtro;
+      });
+    }
+  </script>
+</body>
+</html>

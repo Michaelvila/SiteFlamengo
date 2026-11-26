@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estádio | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html" class="ativo" aria-current="page">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • ESTÁDIO</span>
+      <h1>Estádio</h1>
+      <p>Maracanã: palco de grandes momentos do futebol rubro-negro.</p>
+    </section>
+    <div class="grid"><article class="card"><h2>🏟️ Maracanã</h2><p>Estádio Jornalista Mário Filho, inaugurado em 1950, no Rio de Janeiro. É um dos principais palcos dos jogos do Flamengo.</p><p class="destaque">1950</p></article><article class="card"><h2>Como chegar</h2><p>Localizado no bairro do Maracanã, próximo à estação de metrô e trem.</p><a href="https://www.google.com/maps/search/?api=1&query=Estadio+Maracana+Rio+de+Janeiro" target="_blank" rel="noopener">Ver no mapa ↗</a></article></div><section class="card"><h2>Clima no Maracanã</h2><p>Vai ao jogo? Consulte as condições meteorológicas atuais da região.</p><button id="buscar" onclick="clima()">Consultar clima</button><div id="mensagem" aria-live="polite">Dados fornecidos pela Open-Meteo.</div></section>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    async function clima() {
+      const saida = document.getElementById('mensagem');
+      const botao = document.getElementById('buscar');
+      botao.disabled = true;
+      saida.textContent = 'Consultando clima...';
+      try {
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=-22.912&longitude=-43.230&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=America%2FSao_Paulo';
+        const resposta = await fetch(url);
+        if (!resposta.ok) throw new Error('Erro de conexão');
+        const dados = await resposta.json();
+        const c = dados.current;
+        saida.textContent = 'Temperatura: ' + c.temperature_2m + ' °C | Umidade: ' + c.relative_humidity_2m + '% | Vento: ' + c.wind_speed_10m + ' km/h. Horário local: ' + c.time.replace('T', ' ');
+      } catch (erro) {
+        saida.textContent = 'Não foi possível consultar o clima. Verifique a internet e tente novamente.';
+      } finally { botao.disabled = false; }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Início | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    .hero { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .hero h2 {font-size:32px;color:#171717;} .bandeira { flex:1; min-width:180px; max-width:320px; height:190px; border-radius:9px; display:grid; place-items:center; background:repeating-linear-gradient(-15deg,#c8101b 0 34px,#171717 34px 68px); color:white; font-size:70px; font-weight:900; text-shadow:2px 3px #000; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html" class="ativo" aria-current="page">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • INÍCIO</span>
+      <h1>Uma paixão que não tem fim</h1>
+      <p>Bem-vindo ao espaço da Nação! Conheça o clube, acompanhe o futebol e divirta-se.</p>
+    </section>
+    <div class="hero card"><div><p class="nota">CLUBE DE REGATAS DO FLAMENGO</p><h2>Onde estiver, estarei.</h2><p>Desde 1895, uma história de conquistas, tradição e amor pelo Manto Sagrado.</p><a class="botao" href="historia.html">Conhecer a história</a><a class="botao" href="resultados.html">Ver resultados</a></div><div class="bandeira" aria-label="Ilustração rubro-negra">CRF</div></div>
+<h2 style="margin-top:25px">Explore o portal</h2>
+<div class="grid"><article class="card">
+  <h2>⚽ Futebol</h2>
+  <p>Confira a formação e as partidas do Mengão.</p>
+  <a href="escalacao.html">Ver escalação →</a>
+</article><article class="card"><h2>🏆 Conquistas</h2>
+  <p>Relembre os grandes títulos do clube.</p>
+  <a href="titulos.html">Ver títulos →</a>
+</article><article class="card">
+  <h2>🎯 Quiz</h2><p>Teste o quanto você sabe sobre o Flamengo.</p>
+  <a href="quiz.html">Começar →</a></article>
+</div><section class="card"><h2>Saudação da Nação</h2><label for="nome">Qual é o seu nome?</label>
+  <input id="nome" placeholder="Seu nome">
+   <button type="button" onclick="saudar()">Enviar</button>
+   <p id="mensagem" aria-live="polite">Saudações rubro-negras!</p>
+  </section>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    function saudar() {
+      const nome = document.getElementById('nome').value.trim();
+      document.getElementById('mensagem').textContent = nome ? 'Bem-vindo à Nação, ' + nome + '! SRN!' : 'Digite seu nome primeiro.';
+    }
+  </script>
+</body>
+</html>

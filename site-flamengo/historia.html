@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html" class="ativo" aria-current="page">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • HISTÓRIA</span>
+      <h1>História</h1>
+      <p>Do remo ao futebol: conheça a trajetória do Mais Querido.</p>
+    </section>
+    <div class="grid"><article class="card"><h2>1895</h2><p>O clube foi fundado no Rio de Janeiro, inicialmente dedicado ao remo.</p></article><article class="card"><h2>1912</h2><p>O Flamengo disputou suas primeiras partidas de futebol.</p></article><article class="card"><h2>1981</h2><p>O clube conquistou a Libertadores e o Mundial Interclubes.</p></article></div><section class="card"><h2>Leia mais sobre o Flamengo</h2><p>Consulte um resumo da Wikipédia em português pela API MediaWiki.</p><button id="buscar" onclick="historia()">Buscar resumo online</button><div id="mensagem" aria-live="polite">O resumo aparecerá aqui.</div><p><a href="https://pt.wikipedia.org/wiki/Clube_de_Regatas_do_Flamengo" target="_blank" rel="noopener noreferrer">Artigo da Wikipédia ↗</a> · <a href="https://prdhub.flamengo.com.br/clube/historia" target="_blank" rel="noopener noreferrer">História oficial ↗</a></p></section>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    async function historia() {
+      const saida = document.getElementById('mensagem');
+      const botao = document.getElementById('buscar');
+      botao.disabled = true;
+      saida.textContent = 'Buscando resumo...';
+      try {
+        const url = 'https://pt.wikipedia.org/w/api.php?action=query&prop=extracts&exintro=1&explaintext=1&redirects=1&format=json&formatversion=2&origin=*&titles=Clube_de_Regatas_do_Flamengo';
+        const resposta = await fetch(url);
+        if (!resposta.ok) throw new Error('Erro de conexão');
+        const dados = await resposta.json();
+        const texto = dados.query.pages[0].extract;
+        if (!texto) throw new Error('Resumo indisponível');
+        saida.textContent = texto;
+      } catch (erro) {
+        saida.textContent = 'Não foi possível carregar o resumo. Use o link da Wikipédia abaixo ou tente novamente.';
+      } finally { botao.disabled = false; }
+    }
+  </script>
+</body>
+</html>

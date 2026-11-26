@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalação | Portal Mengão</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .intro { border-left: 5px solid #d71920; }
+    .campo { max-width:640px; margin:20px auto; padding:22px 8px; border:4px solid white; outline:2px solid #20793c; border-radius:8px; background:repeating-linear-gradient(0deg,#237b43 0 55px,#2b8a4b 55px 110px); }
+    .linha {display:flex;justify-content:center;gap:6px; margin:20px 0;} .linha button {font-size:12px;padding:7px 9px;margin:0;border:1px solid white;}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="marca" href="index.html"><span class="escudo">CRF</span><span>PORTAL MENGÃO<small>De torcedor para torcedor</small></span></a>
+    <nav aria-label="Menu principal">
+      <a href="index.html">Início</a>
+      <a href="escalacao.html" class="ativo" aria-current="page">Escalação</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="estadio.html">Estádio</a>
+      <a href="titulos.html">Títulos</a>
+      <a href="noticias.html">Notícias</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="historia.html">História</a>
+      <a href="idolos.html">Ídolos</a>
+      <a href="torcida.html">Torcida</a>
+      <a href="agenda.html">Próximos jogos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="curiosidades.html">Curiosidades</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <span style="color: #f9b7b9; font-size: 12px; letter-spacing: 2px;">NAÇÃO RUBRO-NEGRA • ESCALAÇÃO</span>
+      <h1>Escalação</h1>
+      <p>Formação titular de referência: Palmeiras x Flamengo, em 21/11/2026.</p>
+    </section>
+    <section class="card"><h2>Formação ilustrativa 4-2-3-1</h2><p>Clique em um jogador no campo para conhecer sua posição.</p><div class="campo"><div class="linha"><button onclick="jogador('Pedro', 'Atacante')" type="button">Pedro</button></div><div class="linha"><button onclick="jogador('Samuel Lino', 'Meia-atacante')" type="button">Samuel Lino</button><button onclick="jogador('Arrascaeta', 'Meia')" type="button">Arrascaeta</button><button onclick="jogador('Plata', 'Meia-atacante')" type="button">Plata</button></div><div class="linha"><button onclick="jogador('Jorginho', 'Volante')" type="button">Jorginho</button><button onclick="jogador('Lucas Paquetá', 'Meia')" type="button">Lucas Paquetá</button></div><div class="linha"><button onclick="jogador('Alex Sandro', 'Lateral')" type="button">Alex Sandro</button><button onclick="jogador('Danilo', 'Zagueiro')" type="button">Danilo</button><button onclick="jogador('Léo Ortiz', 'Zagueiro')" type="button">Léo Ortiz</button><button onclick="jogador('Varela', 'Lateral')" type="button">Varela</button></div><div class="linha"><button onclick="jogador('Rossi', 'Goleiro')" type="button">Rossi</button></div></div><p id="mensagem" aria-live="polite">Selecione um jogador.</p><p>Técnico: Leonardo Jardim. <a href="https://www.flamengo.com.br/noticias/futebol/decacampeao-brasileiro-flamengo-empata-com-o-palmeiras-e-conquista-o-titulo-nacional-em-sao-paulo" target="_blank" rel="noopener noreferrer">Fonte oficial ↗</a></p></section>
+  </main>
+  <footer><strong>PORTAL MENGÃO</strong> · Projeto acadêmico não oficial<br></footer>
+  <script>
+    function jogador(nome, posicao) {
+      document.getElementById('mensagem').textContent = nome + ' — ' + posicao;
+    }
+  </script>
+</body>
+</html>
